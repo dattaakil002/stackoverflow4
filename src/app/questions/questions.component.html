@@ -1,0 +1,35 @@
+<!-- <div *ngFor = "let question of questionslist">
+<p>{{question.title}}</p>
+</div> -->
+
+<div style="margin-left: 450px; margin-right: 325px;">
+    <h1>Top Questions[Featured]</h1>
+</div>
+<hr style="width: 43%;">
+
+<div style="margin-left: 450px; margin-right: 325px;" *ngFor = "let question of questionslist">
+    <a>
+    <div style="float: left;">
+        <button class="start"><span style="font-size: 20px;">4</span><br><span class="spanstart">votes</span></button>
+        <button class="answerstart"><span style="font-size: 20px;">{{question.answer_count}}</span><br><span class="spanstart">answer</span></button>
+        <button class="start"><span style="font-size: 20px;">{{question.view_count}}</span><br><span class="spanstart">views</span></button>
+    </div>
+    <div style="width: 36%;">
+        <div style="flex-wrap: wrap; width: 780px;">
+            <button class="bounty">+{{question.bounty_amount}}</button>
+            <a href="{{question.link}}" class="title">{{question.title}}</a>
+        </div>
+        <div style="width: 780px; padding-top: 5px;">
+            <a style="flex-wrap: wrap; width: 450px;" *ngFor = "let tag of question.tags">
+                <button class="tags">{{tag}}</button>&nbsp;&nbsp;&nbsp;
+            </a>
+            <a style="float: right;">
+                <span class="date">{{question.last_activity_date}}</span>&nbsp;
+                <a class="user" (click) = "user(question.question_id)">{{question.owner.display_name}}</a>&nbsp;
+                <span class="reputation">{{question.owner.reputation}}</span>&nbsp;
+            </a>
+        </div>
+    </div>
+</a>
+<hr style="width: 100%;">
+</div>

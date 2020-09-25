@@ -1,0 +1,75 @@
+<div style="margin-left: 450px; margin-right: 325px;">
+<h1> User Profile</h1>
+</div>
+    <!-- <div>
+    <img src="{{user.owner.profile_image}}"  style="width:150px; height: 200px;">
+</div> -->
+
+<div style="margin-left: 450px; margin-right: 325px;">
+    <a>
+    <div style="float: left;">
+        <div style="width:200px;height:290px;border:1px solid #000; margin-right: 20px;">
+            <img src="{{user.owner.profile_image}}"  style="width:150px; height: 165px; padding: 25px;">
+            <span style="padding-left: 40px;">{{user.owner.reputation}}&nbsp; Reputation</span>
+            <button class="start1 box1"><span style="font-size: 13px;">4</span></button>
+            <button class="start1 box2"><span style="font-size: 13px;">{{user.answer_count}}</span></button>
+            <button class="start1 box3"><span style="font-size: 13px;">{{user.view_count}}</span></button>
+        </div>
+       
+    </div>
+    <div style="width: 36%;">
+        <div style="flex-wrap: wrap; width: 780px;">
+            <h2>{{user.owner.display_name}}</h2>
+            <p class="location">{{user.content_license}}</p>
+            <a href="{{user.owner.link}}">{{user.owner.link}}</a>
+        </div>
+        <div style="width: 780px; padding-top: 5px;">
+          
+        </div>
+    </div>
+</a>
+
+<!-- <h5>Top Tags</h5><br>
+<hr style="width: 100%;"> -->
+</div>
+<div style="margin-left: 450px; margin-right: 325px; margin-top: 200px;">
+    <h4 style="margin-bottom: 5px;">Top Tags</h4>
+    <hr style="width: 100%;">
+
+    <a style="flex-wrap: wrap; width: 450px;" *ngFor = "let tag of user.tags">
+        <button class="tags" style="font-size: 20px; margin: 10px;">{{tag}}</button>&nbsp;&nbsp;&nbsp;
+        <span style="float: right; margin: 10px;">Score {{user.score}}</span><br>
+    </a>
+</div>
+
+<div style="margin-left: 450px; margin-right: 325px;">
+    <h4 style="margin-bottom: 5px;">Top posts</h4>
+    <hr style="width: 100%;">
+</div>
+
+<div style="margin-left: 450px; margin-right: 325px;" *ngFor = "let question of questionslist">
+    <a>
+    <div style="float: left;">
+        <button class="start"><span style="font-size: 20px;">4</span><br><span class="spanstart">votes</span></button>
+        <button class="answerstart"><span style="font-size: 20px;">{{question.answer_count}}</span><br><span class="spanstart">answer</span></button>
+        <button class="start"><span style="font-size: 20px;">{{question.view_count}}</span><br><span class="spanstart">views</span></button>
+    </div>
+    <div style="width: 36%;">
+        <div style="flex-wrap: wrap; width: 780px;">
+            <button class="bounty">+{{question.bounty_amount}}</button>
+            <a href="{{question.link}}" class="title">{{question.title}}</a>
+        </div>
+        <div style="width: 780px; padding-top: 5px;">
+            <a style="flex-wrap: wrap; width: 450px;" *ngFor = "let tag of question.tags">
+                <button class="tags">{{tag}}</button>&nbsp;&nbsp;&nbsp;
+            </a>
+            <a style="float: right;">
+                <span class="date">{{question.last_activity_date}}</span>&nbsp;
+                <a class="user" (click) = "user(question.question_id)">{{question.owner.display_name}}</a>&nbsp;
+                <span class="reputation">{{question.owner.reputation}}</span>&nbsp;
+            </a>
+        </div>
+    </div>
+</a>
+<hr style="width: 100%;">
+</div>
